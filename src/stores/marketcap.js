@@ -1,5 +1,6 @@
 
 import EventEmitter from 'events';
+import 'whatwg-fetch';
 
 class MarketCap extends EventEmitter {
 	constructor() {
