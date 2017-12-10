@@ -1,0 +1,26 @@
+
+// Layout with flex-box
+
+.layout {
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.layout-row {
+	@extend .layout;
+	-ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+}
+.layout-center {
+	@extend .layout;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.flex { box-sizing: border-box; flex: 1; }
+

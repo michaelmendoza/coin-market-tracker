@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 3002;
 
 // set up access to index.html
 app.use(express.static(path.join(__dirname, '../')));

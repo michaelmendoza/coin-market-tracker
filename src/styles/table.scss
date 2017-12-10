@@ -1,0 +1,48 @@
+
+.table {
+	min-width: 500px;
+	width: 800px;
+	
+	border-radius: 6px;
+	box-shadow: $box-shadow-0;
+	font-size: 12px;
+	margin: 20px;
+	margin-top: 40px;
+
+	.table-header {
+		background-color: $table-header;
+		color: $white;
+		
+		.table-cell {
+			padding: 12px 8px 12px 8px;
+		}		
+	}
+
+	.table-row {
+		background-color: $table-row;
+		border-bottom: 1px solid $table-border-color;
+		flex-wrap: wrap;
+		position: relative;
+		transition: box-shadow 0.5s ease;
+
+		&:hover {
+			background-color: $white;
+			border-bottom: 1px solid transparent;			
+			margin-top: -1px;
+			padding-top: 1px;
+			box-shadow: $box-shadow-1;
+			z-index: $z-active;
+		}		
+	}
+
+	.table-cell {
+		@extend .flex;
+		display: inline-block;
+		padding: 6px 8px;
+		transition: border 0.5s ease;		
+
+		&.chg { text-align: right; }
+	}
+
+}
+

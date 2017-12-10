@@ -25,18 +25,25 @@ class TickerTable extends React.Component {
 	render() {
 		var tickers = this.state.tickers;
 
-		return <section className='ticker-table'>  
-			Tickers
+		return <section className='table ticker-table'>  
+			<div className="table-header layout-row">  
+				<span className="table-cell ticker"> Ticker </span> 
+				<span className="table-cell usd"> USD </span> 
+				<span className="table-cell btc"> BTC </span> 
+				<span className="table-cell chg"> % Chg (1h) </span> 
+				<span className="table-cell chg"> % Chg (24h) </span> 
+				<span className="table-cell chg"> % Chg (7d) </span> 
+			</div>
 
 			{
 				tickers.map((ticker, index) => { 
-					return (<div key={index}>
-						<span> {ticker.symbol} </span>
-						<span> {ticker.price_usd} </span>
-						<span> {ticker.price_btc} </span>
-						<span> {ticker.percent_change_1h } </span>
-						<span> {ticker.percent_change_24h } </span>
-						<span> {ticker.percent_change_7d } </span>
+					return (<div key={index} className='table-row layout-row'>
+						<span className="table-cell ticker"> {ticker.symbol} </span>
+						<span className="table-cell usd"> {ticker.price_usd} </span>
+						<span className="table-cell btc"> {ticker.price_btc} </span>
+						<span className="table-cell chg"> {ticker.percent_change_1h } % </span>
+						<span className="table-cell chg"> {ticker.percent_change_24h } % </span>
+						<span className="table-cell chg"> {ticker.percent_change_7d } % </span>
 					</div>)
 				})
 			}
