@@ -7,7 +7,8 @@ class TickerTable extends React.Component {
 	constructor() {
 		super();
 		this.state = { tickers: []}
-		MarketCap.get()
+		MarketCap.get();
+		MarketCap.setInterval();
 	}
 
 	componentDidMount() {
@@ -23,8 +24,9 @@ class TickerTable extends React.Component {
 	}
 
 	render() {
-		var tickers = this.state.tickers;
-
+		const tickers = this.state.tickers;
+		const getColor = MarketCap.getColor;
+		
 		return <section className='table ticker-table'>  
 			<div className="table-header layout-row">  
 				<span className="table-cell ticker"> Ticker </span> 
@@ -41,9 +43,9 @@ class TickerTable extends React.Component {
 						<span className="table-cell ticker"> {ticker.symbol} </span>
 						<span className="table-cell usd"> {ticker.price_usd} </span>
 						<span className="table-cell btc"> {ticker.price_btc} </span>
-						<span className="table-cell chg"> {ticker.percent_change_1h } % </span>
-						<span className="table-cell chg"> {ticker.percent_change_24h } % </span>
-						<span className="table-cell chg"> {ticker.percent_change_7d } % </span>
+						<span className={"table-cell chg " + getColor(ticker.percent_change_1h)}> {ticker.percent_change_1h } % </span>
+						<span className={"table-cell chg " + getColor(ticker.percent_change_24h)}> {ticker.percent_change_24h } % </span>
+						<span className={"table-cell chg " + getColor(ticker.percent_change_7d)}> {ticker.percent_change_7d } % </span>
 					</div>)
 				})
 			}

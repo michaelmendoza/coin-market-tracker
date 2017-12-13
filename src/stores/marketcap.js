@@ -17,8 +17,12 @@ class MarketCap extends EventEmitter {
 		this.removeListener('update', callback);
 	}
 
+	setInterval() { 
+		setInterval( function(){ this.get(); }.bind(this), 10000);
+	}
+
 	get() {
-		var url = "https://api.coinmarketcap.com/v1/ticker/?limit=10";
+		var url = "https://api.coinmarketcap.com/v1/ticker/?limit=10"; // Updates every 5 minutes
 		var _this = this;
 
 		return fetch(url)
@@ -32,6 +36,11 @@ class MarketCap extends EventEmitter {
 			this.tickers = json; 
 			this.emit('update');
 		})
+	} 
+
+	getColor(value) {
+		var value = parseFloat(value)
+		return value > 0 ? 'green' : 'red';
 	}
 }
 
